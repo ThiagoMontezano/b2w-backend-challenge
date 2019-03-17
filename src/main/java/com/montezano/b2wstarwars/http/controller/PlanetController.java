@@ -12,6 +12,7 @@ import io.swagger.annotations.ApiResponses;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
@@ -38,7 +39,7 @@ public class PlanetController {
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Ok")
     })
-    @PostMapping
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public Mono<Planet> create(@Valid @RequestBody PlanetDataContract planetDataContract){
         log.info("Create -> {}", planetDataContract);
         return planetManager.save(planetConverter.convert(planetDataContract));
@@ -48,7 +49,7 @@ public class PlanetController {
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Planets found"),
     })
-    @GetMapping(produces = "application/stream+json")
+    @GetMapping(produces = MediaType.APPLICATION_STREAM_JSON_VALUE)
     public Flux<Planet> getAll(){
         return planetManager.getAllPlanets();
     }
@@ -87,18 +88,6 @@ public class PlanetController {
         log.info("Delete by id -> {}", id);
 
         return planetManager.deleteById(id)
-                .flatMap(PlanetController::apply);
-    }
-
-    @ApiOperation(value = "Delete planet by Name")
-    @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Delete successfully"),
-            @ApiResponse(code = 400, message = "Planet Not found")
-    })
-    @DeleteMapping(value="/name/{name}")
-    public Mono<ResponseEntity<Void>> deletePlanetByName(@PathVariable final String name){
-        log.info("Delete by name -> {}", name);
-        return planetManager.deleteByName(name)
                 .flatMap(PlanetController::apply);
     }
 

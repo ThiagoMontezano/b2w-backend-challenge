@@ -171,16 +171,13 @@
 
                                         <!--Gateways-->
                                         <exclude>*.gateways.*</exclude>
-                                        <exclude>*.http.*</exclude>
 
-                                        <!--Domains-->
-                                        <exclude>*.domains.*</exclude>
                                     </excludes>
                                     <limits>
                                         <limit>
                                             <counter>BRANCH</counter>
                                             <value>COVEREDRATIO</value>
-                                            <minimum>0.90</minimum>
+                                            <minimum>0.70</minimum>
                                         </limit>
                                         <limit>
                                             <counter>LINE</counter>

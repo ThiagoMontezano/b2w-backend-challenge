@@ -1,5 +1,6 @@
 package com.montezano.b2wstarwars.domains;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,6 +12,7 @@ import javax.validation.constraints.NotBlank;
 
 @Document
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 public class Planet {

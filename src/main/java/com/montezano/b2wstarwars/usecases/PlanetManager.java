@@ -33,15 +33,6 @@ public class PlanetManager {
                 .defaultIfEmpty(Boolean.FALSE);
     }
 
-    public Mono<Boolean> deleteByName(final String name) {
-        return planetGateway.findByName(name)
-                .flatMap(existingPlanet ->
-                        planetGateway.delete(existingPlanet)
-                                .then(Mono.just(Boolean.TRUE))
-                )
-                .defaultIfEmpty(Boolean.FALSE);
-    }
-
     public Mono<Planet> save(final Planet planet) {
         return planetGateway.save(planet)
                 .doOnSuccess(m -> publishEventGateway.publishPlanet(m));
