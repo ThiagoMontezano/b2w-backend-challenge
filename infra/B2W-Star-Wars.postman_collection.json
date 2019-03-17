@@ -1,0 +1,201 @@
+{
+	"info": {
+		"_postman_id": "13ca66d2-7340-4684-b8a9-a934a8e2a497",
+		"name": "B2W-Star-Wars",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"climate\": \"temperate, arid\",\n  \"name\": \"Geonosis\",\n  \"terrain\": \"rock, desert, mountain, barren\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/planet",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"planet"
+					]
+				},
+				"description": "Create planet"
+			},
+			"response": []
+		},
+		{
+			"name": "Find All Planets",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/planet",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"planet"
+					]
+				},
+				"description": "Find all planets"
+			},
+			"response": []
+		},
+		{
+			"name": "Find by Id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/planet/5c8d21c978fac78396bac8e3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"planet",
+						"5c8d21c978fac78396bac8e3"
+					]
+				},
+				"description": "Find by Id"
+			},
+			"response": []
+		},
+		{
+			"name": "Find By Name",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/planet/name/Geonosis",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"planet",
+						"name",
+						"Geonosis"
+					]
+				},
+				"description": "Find By Name"
+			},
+			"response": []
+		},
+		{
+			"name": "Find star wars planets",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/planet/starWars?page=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"planet",
+						"starWars"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "Page"
+						}
+					]
+				},
+				"description": "Find star wars planets"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete by Id",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/planet/5c8df51278fac7907d3cab6d",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"planet",
+						"5c8df51278fac7907d3cab6d"
+					]
+				},
+				"description": "Delete by Id"
+			},
+			"response": []
+		}
+	]
+}
