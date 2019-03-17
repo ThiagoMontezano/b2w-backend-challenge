@@ -1,7 +1,6 @@
 package com.montezano.b2wstarwars.gateways;
 
 import com.montezano.b2wstarwars.domains.Planet;
-import com.montezano.b2wstarwars.http.data.StarWarsPlanetPageDataContract;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -16,6 +15,4 @@ public interface PlanetGateway {
     Flux<Planet> findAll();
 
     Mono<Void> delete(final Planet planet);
-
-    Flux<StarWarsPlanetPageDataContract> getAllPlanets(final Integer page);
 }

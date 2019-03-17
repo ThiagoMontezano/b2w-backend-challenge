@@ -1,9 +1,10 @@
 package com.montezano.b2wstarwars.usecases;
 
 import com.montezano.b2wstarwars.domains.Planet;
-import com.montezano.b2wstarwars.http.data.StarWarsPlanetPageDataContract;
 import com.montezano.b2wstarwars.gateways.PlanetGateway;
 import com.montezano.b2wstarwars.gateways.PublishEventGateway;
+import com.montezano.b2wstarwars.gateways.StarWarsPlanetGateway;
+import com.montezano.b2wstarwars.http.data.StarWarsPlanetPageDataContract;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -18,6 +19,8 @@ import java.time.Duration;
 public class PlanetManager {
 
     private final PlanetGateway planetGateway;
+
+    private final StarWarsPlanetGateway starWarsPlanetGateway;
 
     private final PublishEventGateway publishEventGateway;
 
@@ -57,6 +60,6 @@ public class PlanetManager {
     }
 
     public Flux<StarWarsPlanetPageDataContract> getAllStarWarsPlanets(final Integer page){
-        return planetGateway.getAllPlanets(page);
+        return starWarsPlanetGateway.getAllPlanets(page);
     }
 }
